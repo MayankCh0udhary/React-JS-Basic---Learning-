@@ -18,6 +18,16 @@ export default function TextForm(props) {
         setText(newText);
 
     }
+    const handleCopy = () =>{
+        let text = document.getElementById('myBox');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    const handleExtraSpaces = () =>{
+        //Regex
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
     const handleOnChange = (event) => {
         // console.log('handleOnChnage');
         setText(event.target.value);
@@ -25,20 +35,22 @@ export default function TextForm(props) {
     const [text, setText] = useState('');
     return (
         <>
-            <div className='container'>
+            <div className='container' style={{color: props.mode==='light'?'black':'white'}}>
                 <h1 className='my-4'>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor: props.mode==='light'?'white':'black', color: props.mode==='light'?'black':'white'}}></textarea>
                 </div>
-                <buttom className="btn btn-info mx-2 text-dark " onClick={handleUpperCaseClick}>Convert to Uppercase</buttom>
-                <buttom className="btn btn-info mx-2 text-dark" onClick={handleLowerCaseClick}>Convert to LowerCase</buttom>
-                <buttom className="btn btn-info mx-2 text-dark" onClick={handleClearTextClick}>Clear text</buttom>
+                <button className="btn btn-info m-2 text-dark " onClick={handleUpperCaseClick}>Convert to Uppercase</button>
+                <button className="btn btn-info m-2 text-dark" onClick={handleLowerCaseClick}>Convert to LowerCase</button>
+                <button className="btn btn-info m-2 text-dark" onClick={handleClearTextClick}>Clear text</button>
+                <button className="btn btn-info m-2 text-dark" onClick={handleCopy}>Copy text</button>
+                <button className="btn btn-info m-2 text-dark" onClick={handleExtraSpaces}>Remove Extra Space</button>
             </div>
-            <div className="container">
+            <div className="container" style={{color: props.mode==='light'?'black':'white'}}>
                 <div className="row">
                 <div className="section2 col-8 ">
                         <h2 className='my-3'>Preview</h2>
-                        <p>{text}</p>
+                        <p>{text.length>0?text:'Enter something in the textbox above to preview it'}</p>
                     </div>
                     <div className="section1 col-3 ms-5">
                         <h4 className='my-3'>Your text summary</h4>

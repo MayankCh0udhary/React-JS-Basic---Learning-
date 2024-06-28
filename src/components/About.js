@@ -1,5 +1,5 @@
 import React from "react";
-import Mayank from "../Images/Mayank_Choudhary.jpg";
+// import Mayank from "../Images/Mayank_Choudhary.jpg";
 
 export default function About(props) {
     let myStyle = {
@@ -77,7 +77,8 @@ export default function About(props) {
                     >
                         <div className="accordion-body" style={myStyle}>
                             <div className="owner mx-3">
-                            <img src={Mayank} alt="Mayank Choudhary" className="shadow-lg my-2" style={{width: 150, borderRadius: 7, boxShadow: 4}}/>
+                            {/* <img src={Mayank} alt="Mayank Choudhary" className="shadow-lg my-2" style={{width: 100, borderRadius: 50, boxShadow: 4}}/> */}
+
                             <div className="name"><strong>Mayank Choudhary</strong></div>
                             </div>
                             </div>

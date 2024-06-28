@@ -1,28 +1,28 @@
 import React from 'react';
-import logo from '../logo.svg';
+// import logo from '../';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
-  let logoStyle = { height: 50 };
+  // let logoStyle = { height: 50 };
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} position-sticky fixed-top`}>
       <div className="container-fluid">
-        <img src={logo} alt="" style={logoStyle} />
-        <a className="navbar-brand" href="/">{props.title}</a>
+        {/* <img src={logo} alt="" style={logoStyle} /> */}
+        <a className="navbar-brand" href="#">{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse position-relative" id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <li className="nav-item dropdown">
-              <Link className="nav-link " to="/about" role="button"  aria-expanded="false">
+            {/* <li className="nav-item dropdown">
+              <a className="nav-link " href="/about" role="button"  aria-expanded="false">
                 {props.aboutText}
-              </Link>
-            </li>
+              </a>
+            </li> */}
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

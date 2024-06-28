@@ -53,14 +53,14 @@ export default function TextForm(props) {
     // inputStyle.style.setAttribute('heigth: 300px !important'); 
 
     const [text, setText] = useState('');
-    return ( 
+    return (
         <>
             <div className='container' style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h1 className='my-4'>{props.heading}</h1>
                 <div className="mb-3">
                     {/* <TextField id="outlined-multiline-flexible" label={props.heading} placeholder="Text" multiline fullWidth maxRows={4} className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'light' ? 'white' : 'black', color: props.mode === 'light' ? 'black' : 'white'}}
                     /> */}
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{ backgroundColor: props.mode === 'light' ? 'white' : 'black', color: props.mode === 'light' ? 'black' : 'white', border: props.mode==='light'?'1px solid black' : '1px solid white'}}></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{ backgroundColor: props.mode === 'light' ? 'white' : 'black', color: props.mode === 'light' ? 'black' : 'white', border: props.mode === 'light' ? '1px solid black' : '1px solid white' }}></textarea>
                 </div>
                 <button className="btn btn-info m-2 text-dark " onClick={handleUpperCaseClick}>Convert to Uppercase</button>
                 <button className="btn btn-info m-2 text-dark" onClick={handleLowerCaseClick}>Convert to LowerCase</button>
@@ -72,12 +72,12 @@ export default function TextForm(props) {
                 <div className="row">
                     <div className="section2 col-lg-8 col-sm-12">
                         <h2 className='my-3'>Preview</h2>
-                        <p className=' text-wrap'>{text.length > 0 ? text : 'Enter something in the textbox above to preview it'}</p>
+                        <p className=' text-wrap'>{text.length > 0 ? text : 'Nothing to Preview!'}</p>
                     </div>
                     <div className="section1 col-lg-3 col-sm-12 ms-lg-5">
                         <h4 className='mt-3' onClick={handleTextCount}>Your text summary</h4>
-                        <p>{text.split(" ").length} words and {text.length} characters</p>
-                        <p>{text.length>0?0.008 * text.split(" ").length: '0'} Minutes read</p>
+                        <p>{text.split(/\s+/).filter((element)=>{ return element.length !== 0 }).length} words and {text.length} characters</p>
+                        <p>{0.008 * text.split(" ").filter((element)=>{ return element.length !== 0 }).length} Minutes read</p>
                     </div>
 
                 </div>
